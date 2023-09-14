@@ -2,14 +2,18 @@ apply plugin: 'com.android.library'
 apply plugin:  'maven-publish'
 
 android {
-    compileSdkVersion 29
+    namespace 'com.example.facelib'
+//    compileSdkVersion 29
 //    buildToolsVersion '26.0.2'
     publishNonDefault true
+    compileSdkVersion 29
+
     defaultConfig {
+//        applicationId "com.example.facelib"
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 5
-        versionName "5.0"
+        versionCode 1
+        versionName "1.0"
 
         ndk {
             moduleName "facesdk"
@@ -42,13 +46,20 @@ android {
             buildConfigField 'boolean', 'USE_AIKL', 'true'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-    implementation files('libs/liantian.jar')
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+
+//    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'org.jetbrains:annotations-java5:15.0'
-    compile files('libs/orbbec_module-debug.aar')
+    implementation files('libs/orbbec_module-debug.aar')
     implementation files('libs/FaceSDK.jar')
     implementation files('libs/bd_unifylicense.jar')
+    implementation files('libs/liantian.jar')
+
 }
