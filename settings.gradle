@@ -2,3 +2,4 @@ rootProject.name = "Face"
 include ':app'
 //include ':facelibrary'
 include ':facelib'
+include ':facelib:orbbec'
