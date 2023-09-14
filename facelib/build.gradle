@@ -9,12 +9,12 @@ task generateSourcesJar(type: Jar){
 
 android {
     namespace 'com.example.facelib'
-    compileSdkVersion 33
+    compileSdkVersion 29
 
     defaultConfig {
 //        applicationId "com.example.facelib"
-        minSdkVersion 24
-        targetSdkVersion 33
+        minSdkVersion 16
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
