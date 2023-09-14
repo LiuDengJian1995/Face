@@ -1,4 +1,4 @@
 rootProject.name = "Face"
 include ':app'
-include ':facelibrary'
-//include ':face'
+//include ':facelibrary'
+include ':facelib'

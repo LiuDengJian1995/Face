@@ -1,0 +1,60 @@
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
+task generateSourcesJar(type: Jar){
+    from android.sourceSets.main.java.srcDirs
+    classifier 'sources'
+}
+
+android {
+    namespace 'com.example.facelib'
+    compileSdkVersion 33
+
+    defaultConfig {
+//        applicationId "com.example.facelib"
+        minSdkVersion 24
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+//    publishing {
+//        singleVariant("release")
+//    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release         // 表示发布 release（jitpack 都不会使用到）
+                groupId = 'com.example.facelib' // 这个是依赖库的组 id
+                artifactId = 'FaceUtils'       // 依赖库的名称（jitpack 都不会使用到）
+                version ="1.0.0"                //当前版本依赖库版本号，这个jitpack不会使用到，只是我们开发者自己查看
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation 'org.jetbrains:annotations-java5:15.0'
+    implementation files('libs/orbbec_module-debug.aar')
+    implementation files('libs/FaceSDK.jar')
+    implementation files('libs/bd_unifylicense.jar')
+    implementation files('libs/liantian.jar')
+
+}

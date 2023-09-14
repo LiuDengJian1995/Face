@@ -1,4 +1,4 @@
-package com.example.face;
+package com.example.facelib;
 
 
 public class Main1 {

@@ -1,12 +1,18 @@
-apply plugin: 'com.android.library'
-apply plugin:  'maven-publish'
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
+//task generateSourcesJar(type: Jar){
+//    from android.sourceSets.main.java.srcDirs
+//    classifier 'sources'
+//}
 
 android {
-    namespace 'com.example.facelib'
-//    compileSdkVersion 29
+//    namespace 'com.example.facelib'
+    compileSdkVersion 29
 //    buildToolsVersion '26.0.2'
     publishNonDefault true
-    compileSdkVersion 29
+//    compileSdkVersion 29
 
     defaultConfig {
 //        applicationId "com.example.facelib"
